@@ -1,18 +1,18 @@
 version: '3'
 services:
-  azure-vote-back:
-    image: mcr.microsoft.com/oss/bitnami/redis:6.0.8
-    container_name: azure-vote-back
+  vote-back:
+    image: gcr.io/delta-daylight-357813/gcr.io/gcp-vote-redis:v1 #mcr.microsoft.com/oss/bitnami/redis:6.0.8
+    container_name: vote-back
     environment:
       ALLOW_EMPTY_PASSWORD: "yes"
     ports:
         - "6379:6379"
 
-  azure-vote-front:
-    build: ./azure-vote
-    image: mcr.microsoft.com/azuredocs/azure-vote-front:v1
-    container_name: azure-vote-front
+  vote-front:
+    build: ./vote
+    image: gcr.io/delta-daylight-357813/gcr.io/gcp-vote-front:v1 #mcr.microsoft.com/azuredocs/azure-vote-front:v1
+    container_name: vote-front
     environment:
-      REDIS: azure-vote-back
+      REDIS: vote-back
     ports:
         - "8080:80"
