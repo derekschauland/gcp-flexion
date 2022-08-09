@@ -99,3 +99,6 @@ ENV/
 
 # mypy
 .mypy_cache/
+terraform/terraform.tfstate
+.gitignore
+terraform/.terraform.lock.hcl
